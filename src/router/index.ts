@@ -5,6 +5,7 @@ import GuestLayout from "../components/GuestLayout.vue";
 import MealsByName from "../views/MealsByName.vue";
 import MealsByIngredients from "../views/MealsByIngredients.vue";
 import MealsByLetter from "../views/MealsByLetter.vue";
+import singlePage from "../views/singlePage.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -31,6 +32,12 @@ const routes: RouteRecordRaw[] = [
         path: "/by-ingredient/:ingrdient?",
         name: "byIngredient",
         component: MealsByIngredients,
+      },
+
+      {
+        path: "/meal/:id?",
+        name: "mealSingle",
+        component: singlePage,
       },
     ],
   },
