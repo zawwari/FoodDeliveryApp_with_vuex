@@ -17,7 +17,9 @@
     <div class="grid  grid-cols-3 gap-x-7 gap-y-6 px-8 ">
     
 <div v-for="loo in meals" :key='loo.idMeal'  class=" rounded-xl  overflow-hidden shadow-lg bg-white">
-<div class="image-wrapper h-[240px]">
+
+<router-link :to = "{name:'mealSingle', params:{id:loo.idMeal}}">
+  <div class="image-wrapper h-[240px]">
   <img :src='loo.strMealThumb' alt="" srcset="" class="h-full w-full object-cover"/>
 </div>
   <div class="px-6 py-4">
@@ -30,6 +32,7 @@ All these meals are fake think before you order and so Lorem ipsum dolor sit ame
 <span class="inline-block bg-[#86A873] rounded-full px-3 py-1 text-xs font-semibold text-white mr-2">{{loo.strCategory}}</span>
 <span class="inline-block bg-[#86A873] rounded-full px-3 py-1 text-xs font-semibold text-white mr-2">{{loo.strArea}}</span>
 </div>
+</router-link>
 </div>
     </div>
   </div>
@@ -41,7 +44,7 @@ All these meals are fake think before you order and so Lorem ipsum dolor sit ame
   import store from '../store/store'
   import axiosClient from '../axiosClient'
   import { ref , onMounted, computed} from 'vue';
-  import {useRoute} from 'vue-router';
+  import {RouterLink, useRoute} from 'vue-router';
 
   const menuArr = ref([])
   const loading = ref(true)
